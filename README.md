@@ -13,4 +13,11 @@ Could have some practical applications, perhaps when teams feel the pain of mana
 
 👋 Hello!
 
-Repository for this talk: [GitHub](https://github.com/defeated/parslet_demo)
+---
+
+📖 Resources
+
+  * [Parslet](https://kschiess.github.io/parslet/)
+  * [PEG definition](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
+  * [BIMI spec](https://tools.ietf.org/id/draft-blank-ietf-bimi-00.html)
+  * [ABNF spec (so meta)](https://tools.ietf.org/html/rfc5234)
