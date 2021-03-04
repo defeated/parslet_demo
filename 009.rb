@@ -47,10 +47,13 @@ class TxtTest < Minitest::Test
     parser = TxtParser.new.bimi_data
     expected = { v: 'BIMI1' }
 
-    output = parser.parse_with_debug 'v=BIMI1;'
-    assert_equal output, expected
+    tree = parser.parse_with_debug 'v=BIMI1;'
+    assert_equal tree, expected
 
-    output = parser.parse_with_debug 'v = BIMI1 ;'
-    assert_equal output, expected
+    tree = parser.parse_with_debug 'v = BIMI1 ;'
+    assert_equal tree, expected
+
+    tree = parser.parse_with_debug 'f=BIMI1;'
+    assert_nil tree
   end
 end
