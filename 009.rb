@@ -25,7 +25,7 @@ class TxtParser < Parslet::Parser
   end
 
   # helpers
-  rule(:space?) { match[' \t'].maybe }
+  rule(:space?) { match[' \t'].repeat }
   rule(:item_separator) { space? >> str('=') >> space? }
   rule(:field_separator) { space? >> str(';').maybe >> space? }
 end
@@ -40,6 +40,7 @@ class TxtTransform < Parslet::Transform
 end
 
 require 'minitest/autorun'
+require 'minitest/pride'
 require 'parslet/convenience'
 
 class TxtTest < Minitest::Test
@@ -55,5 +56,13 @@ class TxtTest < Minitest::Test
 
     tree = parser.parse_with_debug 'f=BIMI1;'
     assert_nil tree
+  end
+
+  def test_can_parse_bimi_data_with_spaces
+    parser = TxtParser.new.bimi_data
+    expected = { v: 'BIMI1' }
+
+    tree = parser.parse_with_debug 'v  =   BIMI1 ;'
+    assert_equal tree, expected
   end
 end
