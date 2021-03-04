@@ -27,3 +27,4 @@ end
 parsed = TxtParser.new.parse(txt1)
 puts parsed
 pp parsed
+pp parsed.class
